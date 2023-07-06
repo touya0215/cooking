@@ -32,6 +32,6 @@
 - IDE：Cloud9
 ​
 ## 使用素材
-- フリー素材としていかを使用
+- フリー素材として以下を使用
   - フリー動画(https://video-ac.com/)
   - フリー画像(https://www.photo-ac.com/)
