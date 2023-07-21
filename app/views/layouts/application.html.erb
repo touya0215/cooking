@@ -2,15 +2,61 @@
 <html>
   <head>
     <title>Cooking</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="https://kit.fontawesome.com/4249cdba0f.js" crossorigin="anonymous"></script>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand p-3" href="/">
+            <span>LOGO</span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <% if customer_signed_in? %>
+            <a style="margin-left: 100px;" class="navbar-brand p-3">
+              <span>ようこそ、<%= current_customer.last_name %>さん！</span>
+            </a>
+          <% end %>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if customer_signed_in? %>
+              <li>
+                <%= link_to "マイページ",customer_path(current_customer.id), class: 'nav-link text_light' %>
+              </li>
+              <li>
+                <%= link_to "ログアウト",destroy_customer_session_path, method: :delete, class: 'nav-link text-light' %>
+              </li>
+              <% elsif admin_signed_in? %>
+              <li>
+                <%= link_to "会員一覧", admins_customers_path, class: 'nav-link text_light' %>
+              </li>
+              <li>
+                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-light' %>
+              </li>
+              <% else %>
+              <li>
+                <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text_light' %>
+              </li>
+              <li>
+                <%= link_to "ログイン", new_customer_session_path, class: 'nav-link text_light' %>
+              </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="mb-auto">
     <%= yield %>
+    </main>
   </body>
 </html>
