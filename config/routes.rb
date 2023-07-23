@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   # end
   end
 
-  namespace :customer do
+  scope module: :customer do
     resources :comments
   #   get 'comments/show'
   # end
@@ -44,6 +44,11 @@ Rails.application.routes.draw do
   #   get 'posts/index'
   #   get 'posts/show'
   #   get 'posts/edit'
+  # namespace :customer do
+    resources :customers
+  #   get 'customers/show'
+  #   get 'customers/edit'
+  # end
   end
 
 
