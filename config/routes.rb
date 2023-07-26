@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   root to: "customers/homes#top"
   get "/", to: 'customers/homes#top', as: :customers_homes_top
   get "homes/about", to: 'customers/homers#about', as: :customers_homes_about
@@ -8,12 +9,15 @@ Rails.application.routes.draw do
     registrations: 'customers/registrations'
   }
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-    sessions:      'admin/sessions',
+    sessions:      'admins/sessions',
    # passwords:     'admin/passwords',
    # registrations: 'admin/registrations'
   }
 
   namespace :admin do
+    # namespace :admins do
+    get 'homes/top'
+  # end
     resources :posts
   #   get 'posts/new'
   #   get 'posts/index'
