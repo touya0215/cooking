@@ -1,2 +1,35 @@
-<h1>Customer::Customers#edit</h1>
-<p>Find me in app/views/customer/customers/edit.html.erb</p>
+<div class="container">
+  <h3 style="width: 35%; text-align: center; margin: 30px 15px; background: #EEEEEE">
+    会員情報編集
+  </h3>
+  <%= form_with model: @customers,url: customer_path(@customers.id), method: :patch do |f| %>
+  <div class="row">
+    <table>
+      <div class="col-md-2">
+        <div style="margin: 20px;">名前</div>
+        <div style="margin: 20px;">フリガナ</div>
+        <div style="margin: 20px;">電話番号</div>
+        <div style="margin: 20px;">メールアドレス</div>
+      </div>
+
+      <div class="col-md-5">
+        <div style="margin-top: 15px;">
+          <%= f.text_field :last_name %>
+          <%= f.text_field :first_name %>
+        </div>
+        <div style="margin-top: 15px;">
+          <%= f.text_field :last_name_kama %>
+          <%= f.text_field :first_name_kana %>
+        </div>
+        <div style="margin-top: 15px;"><%= f.text_field :telephone_number %></div>
+        <div style="margin-top: 15px;"><%= f.text_field :email %></div>
+        <div style="margin-top: 15px;">
+          <%= f.submit '編集内容を保存', class:"btn btn-sm btn-success" %>
+          <label>　　    　　　　　　　　　　　</label>
+          <%= link_to "退会する", customer_path, class:"margin-top: 20px; btn btn-sm btn-danger" %>
+        </div>
+      </div>
+    </table>
+  </div>
+  <% end %>
+</div>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   root to: "customers/homes#top"
   get "/", to: 'customers/homes#top', as: :customers_homes_top
   get "homes/about", to: 'customers/homers#about', as: :customers_homes_about
@@ -35,7 +35,12 @@ Rails.application.routes.draw do
   # end
   end
 
-  scope module: :customer do
+  scope module: :customers do
+  # namespace :customer do
+    resources :customers
+  #   get 'customers/show'
+  #   get 'customers/edit'
+  # end
     resources :comments
   #   get 'comments/show'
   # end
@@ -49,11 +54,7 @@ Rails.application.routes.draw do
   #   get 'posts/index'
   #   get 'posts/show'
   #   get 'posts/edit'
-  # namespace :customer do
-    resources :customers
-  #   get 'customers/show'
-  #   get 'customers/edit'
-  # end
+
   end
 
 

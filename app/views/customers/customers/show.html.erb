@@ -1,2 +1,35 @@
-<h1>Customer::Customers#show</h1>
-<p>Find me in app/views/customer/customers/show.html.erb</p>
+<div class="container">
+  <h3 style="width: 15%; text-align: center; margin: 40px; background: #EEEEEE">マイページ</h3>
+  <div class="row" style="margin-bottom: 20px;">
+    <h3 style="float:left">
+      <b>登録情報</b>
+    </h3>
+    <div style="margin-left: 20px;">
+      <%= link_to "編集する", edit_customer_path(current_customer.id), class:"margin: 20px; btn btn-success" %>
+    </div>
+  </div>
+  <div class="row">
+    <table border="1">
+      <tr>
+        <td style="background: #EEEEEE">氏名</td>
+        <td>
+          <%= @customers.last_name %> <%= @customers.first_name %>
+        </td>
+      </tr>
+      <tr>
+        <td style="background: #EEEEEE">カナ</td>
+        <td>
+          <%= @customers.last_name_kama %> <%= @customers.first_name_kana %>
+        </td>
+      </tr>
+      <tr>
+        <td style="background: #EEEEEE">電話番号</td>
+        <td><%= @customers.telephone_number %></td>
+      </tr>
+      <tr>
+        <td style="background: #EEEEEE">メールアドレス　　　</td>
+        <td><%= @customers.email %>　　　</td>
+      </tr>
+    </table>
+  </div>
+</div>
