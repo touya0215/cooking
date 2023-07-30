@@ -16,44 +16,49 @@ Rails.application.routes.draw do
 
   namespace :admin do
     # namespace :admins do
-    get 'homes/top'
-  # end
-    resources :posts
-  #   get 'posts/new'
-  #   get 'posts/index'
-  #   get 'posts/show'
-  #   get 'posts/edit'
-  # end
-  # namespace :admin do
-    resources :customers
-  #   get 'customers/index'
-  #   get 'customers/show'
-  #   get 'customers/edit'
-  # namespace :admin do
-    resources :comments
-  #   get 'comments/index'
-  # end
+      get 'homes/top'
+    # end
+      resources :posts
+    #   get 'posts/new'
+    #   get 'posts/index'
+    #   get 'posts/show'
+    #   get 'posts/edit'
+    # end
+    # namespace :admin do
+      resources :customers
+    #   get 'customers/index'
+    #   get 'customers/show'
+    #   get 'customers/edit'
+    # namespace :admin do
+      resources :comments
+    #   get 'comments/index'
+    # end
   end
 
   scope module: :customers do
-  # namespace :customer do
-    resources :customers
-  #   get 'customers/show'
-  #   get 'customers/edit'
-  # end
-    resources :comments
-  #   get 'comments/show'
-  # end
-  # namespace :customer do
-    resources :likes
-  #   get 'likes/index'
-  # end
-  # namespace :customer do
-    resources :posts
-  #   get 'posts/new'
-  #   get 'posts/index'
-  #   get 'posts/show'
-  #   get 'posts/edit'
+    # namespace :customer do
+    get '/unsubscribe', to: 'customers#unsubscribe', as: :customer_unsubscribe
+      resources :customers do
+        collection do
+          patch 'out'
+        end
+      end
+    #   get 'customers/show'
+    #   get 'customers/edit'
+    # end
+      resources :comments
+    #   get 'comments/show'
+    # end
+    # namespace :customer do
+      resources :likes
+    #   get 'likes/index'
+    # end
+    # namespace :customer do
+      resources :posts
+    #   get 'posts/new'
+    #   get 'posts/index'
+    #   get 'posts/show'
+    #   get 'posts/edit'
 
   end
 

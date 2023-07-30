@@ -1,0 +1,8 @@
+  ja: # 日本語の設定を行う
+    enums: # enumの設定を行う
+      post: # モデル名（postモデルに対して）
+        genre: # カラム名（genreカラムに対して）
+          noodles: "麺類"
+          main_dish: "おかず（メイン）"
+          side_dish: "副菜"
+          rice_bowls: "丼類"
