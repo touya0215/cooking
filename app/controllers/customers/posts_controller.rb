@@ -14,9 +14,12 @@ class Customers::PostsController < ApplicationController
   end
 
   def show
-  end
+    @post = Post.new
+    @posts = Post.find(params[:id])
+  end 
 
   def edit
+    @posts = Post.find(params[:id])
   end
 
   private

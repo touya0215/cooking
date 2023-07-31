@@ -1,2 +1,39 @@
-<h1>Customer::Posts#show</h1>
-<p>Find me in app/views/customer/posts/show.html.erb</p>
+<div class="container">
+  <h3 style="width: 11%;  text-align: center; margin-top: 15px; background: #EEEEEE">商品詳細</h3>
+  <div class="row">
+    <table>
+      <div class=" padding: 15px; col-md-3">
+        <%= image_tag @posts.image, :size =>'250x250' %>
+      </div>
+      <div>
+        <tr class="col-md-8">
+          <td style="padding-right: 50px;">
+            商品名
+          </td>
+          <td>
+            <%= @posts.name %>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-right: 50px;">
+            商品説明
+          </td>
+          <td>
+            <%= @posts.sentence %>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-right: 50px;">
+            ジャンル
+          </td>
+          <td>
+            <%= @posts.genre %>
+          </td>
+        </tr>
+      </div>
+    </table>
+  </div>
+  <div class="text-center">
+    <%= link_to "編集する", edit_post_path, class:"btn btn-sm btn-success" %>
+  </div>
+</div>
