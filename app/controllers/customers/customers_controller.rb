@@ -9,6 +9,7 @@ class Customers::CustomersController < ApplicationController
   def show
     @customer = Customer.new
     @customers = current_customer
+    @posts = Post.all
   end
 
   def edit
@@ -21,7 +22,7 @@ class Customers::CustomersController < ApplicationController
     @customers.update(customer_params)
     redirect_to customer_path(params[:id])
   end
-  
+
   def out
     @customer = current_customer
     @customer.update(is_deleted: true)
