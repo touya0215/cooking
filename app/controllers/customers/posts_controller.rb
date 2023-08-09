@@ -16,10 +16,19 @@ class Customers::PostsController < ApplicationController
   def show
     @post = Post.new
     @posts = Post.find(params[:id])
-  end 
+  end
 
   def edit
     @posts = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      redirect_to posts_path
+    else
+      render :new
+    end
   end
 
   private

@@ -1,8 +1,8 @@
 <div class="container">
-  <h3 style="width: 11%;  text-align: center; margin-top: 15px; background: #EEEEEE">商品編集</h3>
+  <h3 style="width: 11%;  text-align: center; margin-top: 15px; background: #EEEEEE">投稿編集</h3>
 </div>
 <div class="container">
-  <%= form_with model: @items,url: admins_item_path(@items.id), method: :patch do |f| %>
+  <%= form_with model: @posts,url: post_path(@posts.id), method: :patch do |f| %>
   <div class="form-group">
     <label for="book_title">商品画像</label>
     <%= f.file_field :image, accept: "image/*" %>
@@ -15,12 +15,12 @@
 
   <div class="form-group">
     <label for="book_opinion">商品説明</label>
-    <%= f.text_area :introduction %>
+    <%= f.text_area :sentence %>
   </div>
 
   <div class="form-group">
     <label for="book_opinion">ジャンル</label>
-    <%= f.select :genre, Post.genres.keys.map { |g| [t("enum.post.genre.#{g}"), g] },  %>
+    <%= f.select :genre, Post.genres.keys.map { |k| [I18n.t("enums.post.genre.#{k}"), k] }  %>
   </div>
 
   <div class="form-group">
