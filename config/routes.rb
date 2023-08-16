@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   root to: "customers/homes#top"
   get "/", to: 'customers/homes#top', as: :customers_homes_top
-  get "homes/about", to: 'customers/homers#about', as: :customers_homes_about
+  get "homes/about", to: 'customers/homes#about', as: :customers_homes_about
+  get 'search', to: 'customers/homes#search', as: :customers_homes_search
   devise_for :customer, controllers: {
     sessions:      'customers/sessions',
     passwords:     'customers/passwords',
