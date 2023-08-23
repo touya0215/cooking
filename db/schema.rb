@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 2023_07_19_074442) do
   end
 
   create_table "posts", force: :cascade do |t|
+    t.integer "customer_id"
     t.string "name"
     t.text "sentence"
     t.integer "genre"

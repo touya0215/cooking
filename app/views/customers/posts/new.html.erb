@@ -21,7 +21,7 @@
 
         <div class="form-group">
           <label for="book_opinion">ジャンル</label>
-          <%= f.select :genre, Post.genres.keys.map { |g| [t("enum.post.genre.#{g}"), g] }, { include_blank: "指定なし" } %>
+          <%= f.select :genre, Post.genres.keys.map { |g| [I18n.t("enums.post.genre.#{g}"), g] }, { include_blank: "指定なし" } %>
         </div>
 
         <div class="form-group">

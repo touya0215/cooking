@@ -1,9 +1,9 @@
 class Customers::PostsController < ApplicationController
 
   def create
-    @post = Post.new(post_params)
+    @post = current_customer.posts.new(post_params)
     @post.save
-    redirect_to post_path(@post[:id])
+    redirect_to posts_path
   end
 
   def new
@@ -24,17 +24,14 @@ class Customers::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    if @post.update(post_params)
-      redirect_to posts_path
-    else
-      render :new
-    end
+    @post.update(post_params)
+    redirect_to post_path(params[:id])
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:name, :image, :sentence, :genre)
+    params.require(:post).permit(:customer_id, :name, :image, :sentence, :genre)
   end
 
 end
