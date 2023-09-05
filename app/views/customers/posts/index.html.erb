@@ -1,2 +1,28 @@
-<h1>Customer::Posts#index</h1>
-<p>Find me in app/views/customer/posts/index.html.erb</p>
+<div class="container">
+  <div style="margin: 20px 0px">
+    <%= form_with url: search_tag_posts_path, local: true, method: :get do |f| %>
+      <%= f.text_field :word, placeholder: "麺類　おかず　副菜　丼類　デザート", size: "40" %>
+      <%= f.submit "検索" %>
+    <% end %>
+  </div>
+  <div class="row">
+    <h3 class="text-center">
+      <b>タグ検索</b>
+    </h3>
+  </div>
+  <div class="row">
+    <% @posts.each do |f| %>
+    <div class="col-md-4">
+      <div style="margin: 30px 0px;">
+        <div class="margin: 10px;">
+          <%= link_to post_path(f.id), class: 'text_light' do %>
+            <%= image_tag f.image, :size => '200x150', class:"margin:10px;" %>
+          <% end %>
+        </div>
+        <div class="margin: 10px;"><%= f.name %></div>
+        <div class="margin: 10px;"><%= f.genre_i18n %></div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -55,7 +55,11 @@ Rails.application.routes.draw do
     #   get 'likes/index'
     # end
     # namespace :customer do
-      resources :posts
+      resources :posts do
+        collection do
+          get 'search_tag', to: 'posts#search', as: :search_tag
+        end
+      end
     #   get 'posts/new'
     #   get 'posts/index'
     #   get 'posts/show'

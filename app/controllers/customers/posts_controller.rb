@@ -3,7 +3,7 @@ class Customers::PostsController < ApplicationController
   def create
     @post = current_customer.posts.new(post_params)
     @post.save
-    redirect_to posts_path
+    redirect_to customers_homes_top_path
   end
 
   def new
@@ -11,6 +11,7 @@ class Customers::PostsController < ApplicationController
   end
 
   def index
+    @posts = Post.all
   end
 
   def show

@@ -5,10 +5,13 @@ class Customers::HomesController < ApplicationController
 
   def about
   end
-  
+
   def search
     search_word = params[:word]
-    @posts = Post.where("name LIKE ?", "%#{search_word}%")
+    search_genre = params[:genre]
+    genre_num = Post.genres[search_genre]
+    # 料理名の検索機能
+    @posts = Post.where("name LIKE ? and genre = ?", "%#{search_word}%", genre_num)
   end
-  
+
 end
