@@ -1,5 +1,5 @@
 <div class="container">
-  <h3 style="width: 11%;  text-align: center; margin-top: 15px; background: #EEEEEE">商品詳細</h3>
+  <h3 style="width: 11%;  text-align: center; margin-top: 15px; background: #EEEEEE">投稿詳細</h3>
   <div class="row">
     <table>
       <div class=" col-md-3">
@@ -8,7 +8,7 @@
       <div class="col-md-8">
         <tr>
           <td style="padding-right: 50px;">
-            商品名
+            投稿名
           </td>
           <td>
             <%= @posts.name %>
@@ -16,7 +16,7 @@
         </tr>
         <tr>
           <td style="padding-right: 50px;">
-            商品説明
+            作り方
           </td>
           <td>
             <%= @posts.sentence %>
@@ -33,7 +33,13 @@
       </div>
     </table>
   </div>
-  <div class="text-center">
-    <%= link_to "編集する", edit_post_path, class:"btn btn-sm btn-success" %>
+  <div class="row">
+    <div class="text-center">
+      <%= link_to "編集する", edit_post_path, class:"btn btn-sm btn-success" %>
+    </div>
+    <label>  　　　  　　　</label>
+    <div class="text-center">
+      <%= link_to "削除する", post_path, method: :delete, class:"btn btn-sm btn-danger" %>
+    </div>
   </div>
 </div>
