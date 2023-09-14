@@ -6,5 +6,10 @@ class Customer < ApplicationRecord
          
 
   has_many :posts
+  has_many :likes, dependent: :destroy #投稿が削除されるといいねも削除される。
+  
+  def already_liked?(post) #今からいいねしようとしている投稿が存在しているのか確認。
+    self.likes.exists?(post_id: post.id)
+  end
 
 end

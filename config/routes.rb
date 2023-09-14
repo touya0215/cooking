@@ -56,9 +56,7 @@ Rails.application.routes.draw do
     # end
     # namespace :customer do
       resources :posts do
-        collection do
-          get 'search_tag', to: 'posts#search', as: :search_tag
-        end
+        resource :likes, only: [:create, :destroy] #いいね機能
       end
     #   get 'posts/new'
     #   get 'posts/index'

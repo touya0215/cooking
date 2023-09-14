@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
 
   belongs_to :customer
+  has_many :likes, dependent: :destroy #投稿が削除されるといいねも削除される。
 
   has_one_attached :image
 
