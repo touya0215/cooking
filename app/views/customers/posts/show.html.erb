@@ -3,7 +3,7 @@
   <div class="row">
     <table>
       <div class=" col-md-3">
-        <%= image_tag @posts.image, :size =>'150x150' %>
+        <%= image_tag @post.image, :size =>'150x150' %>
       </div>
       <div class="col-md-8">
         <tr>
@@ -11,7 +11,7 @@
             投稿名
           </td>
           <td>
-            <%= @posts.name %>
+            <%= @post.name %>
           </td>
         </tr>
         <tr>
@@ -19,7 +19,7 @@
             作り方
           </td>
           <td>
-            <%= @posts.sentence %>
+            <%= @post.sentence %>
           </td>
         </tr>
         <tr>
@@ -27,12 +27,29 @@
             ジャンル
           </td>
           <td>
-            <%= @posts.genre_i18n %>
+            <%= @post.genre_i18n %>
           </td>
         </tr>
       </div>
+      <% if customer_signed_in? %>
+      <div>
+        <p>コメント件数：<%= @post.comments.count %></p>
+        <% @post.comments.each do |c| %>
+          <p><%= image_tag c.customer.get_profile_image(100,100) %></p>
+          <%= c.name %>
+          <%= c.created_at.strftime('%Y/%m/%d') %><%= c.comment %>
+        <% end %>
+      </div>
+      <div>
+        <%= form_with model: [@post, @comment] do |f| %>
+          <%= f.text_area :comment, placeholder: "コメントをここに" %>
+          <%= f.submit "コメントする" %>
+        <% end %>
+      </div>
+      <% end %>
     </table>
   </div>
+  <% if customer_signed_in? %>
   <div class="row">
     <div class="text-center">
       <%= link_to "編集する", edit_post_path, class:"btn btn-sm btn-success" %>
@@ -42,4 +59,5 @@
       <%= link_to "削除する", post_path, method: :delete, class:"btn btn-sm btn-danger" %>
     </div>
   </div>
+  <% end %>
 </div>

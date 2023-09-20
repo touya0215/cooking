@@ -15,8 +15,9 @@ class Customers::PostsController < ApplicationController
   end
 
   def show
-    @post = Post.new
-    @posts = Post.find(params[:id])
+    @post = Post.find(params[:id])
+    @comments = @post.comments  #投稿詳細に関連付けてあるコメントを全取得
+    @comment = current_customer.comments.new  #投稿詳細画面でコメントの投稿を行うので、formのパラメータ用にCommentオブジェクトを取得
   end
 
   def edit
@@ -28,7 +29,7 @@ class Customers::PostsController < ApplicationController
     @post.update(post_params)
     redirect_to post_path(params[:id])
   end
-  
+
   def destroy
     @post = Post.find(params[:id])
     @post.destroy!

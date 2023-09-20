@@ -1,13 +1,19 @@
 class Customers::CommentsController < ApplicationController
 
   def create
+    post = Post.find(params[:post_id])
     comment = current_customer.comments.new(comment_params)
-    comment.post_image_id = post.id
+    comment.post_id = post.id
     comment.save
-    redirect_to post_path(params[:id])
+    redirect_to post_path(post)
   end
 
   def show
+  end
+
+  def destroy
+    comment = Comment.find(params[:id])
+    comment.destroy
   end
 
 

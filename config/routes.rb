@@ -56,6 +56,7 @@ Rails.application.routes.draw do
     # end
     # namespace :customer do
       resources :posts do
+        resource :comments, only: [:create, :destroy]
         resource :likes, only: [:create, :destroy] #いいね機能
       end
     #   get 'posts/new'
