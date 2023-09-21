@@ -1,11 +1,11 @@
 <div class="container">
   <h3 style="width: 11%;  text-align: center; margin-top: 15px; background: #EEEEEE">投稿詳細</h3>
   <div class="row">
-    <table>
-      <div class=" col-md-3">
-        <%= image_tag @post.image, :size =>'150x150' %>
-      </div>
-      <div class="col-md-8">
+    <div class=" col-md-3">
+      <%= image_tag @post.image, :size =>'150x150' %>
+    </div>
+    <div class="col-md-8">
+      <table>
         <tr>
           <td style="padding-right: 50px;">
             投稿名
@@ -30,34 +30,46 @@
             <%= @post.genre_i18n %>
           </td>
         </tr>
-      </div>
+      </table>
       <% if customer_signed_in? %>
-      <div>
-        <p>コメント件数：<%= @post.comments.count %></p>
-        <% @post.comments.each do |c| %>
-          <p><%= image_tag c.customer.get_profile_image(100,100) %></p>
-          <%= c.name %>
-          <%= c.created_at.strftime('%Y/%m/%d') %><%= c.comment %>
-        <% end %>
-      </div>
-      <div>
-        <%= form_with model: [@post, @comment] do |f| %>
-          <%= f.text_area :comment, placeholder: "コメントをここに" %>
-          <%= f.submit "コメントする" %>
-        <% end %>
+      <div class="row">
+        <div class="text-center">
+          <%= link_to "編集する", edit_post_path, class:"btn btn-sm btn-success" %>
+        </div>
+        <label>  　　　  　　　</label>
+        <div class="text-center">
+          <%= link_to "削除する", post_path, method: :delete, class:"btn btn-sm btn-danger" %>
+        </div>
       </div>
       <% end %>
-    </table>
-  </div>
-  <% if customer_signed_in? %>
-  <div class="row">
-    <div class="text-center">
-      <%= link_to "編集する", edit_post_path, class:"btn btn-sm btn-success" %>
     </div>
-    <label>  　　　  　　　</label>
-    <div class="text-center">
-      <%= link_to "削除する", post_path, method: :delete, class:"btn btn-sm btn-danger" %>
+    <% if customer_signed_in? %>
+    <div>
+      <%= form_with model: [@post, @comment] do |f| %>
+        <%= f.text_area :sentence, placeholder: "コメントをここに" %>
+        <%= f.submit "コメントする" %>
+      <% end %>
     </div>
+    <div class="col-md-12">
+      <p>コメント件数：<%= @post.comments.count %></p>
+      <% @post.comments.each do |c| %>
+        <table>
+          <tr>
+            <td class="col-md-auto">
+              <%= c.customer.first_name %>
+            </td>
+            <td class="col-md-auto">
+              <%= c.sentence %>
+            </td>
+            <td class="col-md-auto">
+              <% if c.customer == current_customer %>
+                <%= link_to "削除", post_comments_path(params[:id]), method: :delete, class:"btn btn-sm btn-danger" %>
+              <% end %>
+            </td>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+    <% end %>
   </div>
-  <% end %>
 </div>
