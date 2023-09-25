@@ -9,7 +9,7 @@ class Customers::CustomersController < ApplicationController
   def show
     @customer = Customer.new
     @customers = current_customer
-    @posts = Post.all
+    @posts = Post.where(customer_id:params[:id])
   end
 
   def edit
