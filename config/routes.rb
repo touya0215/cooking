@@ -43,6 +43,10 @@ Rails.application.routes.draw do
         collection do
           patch 'out'
         end
+
+        member do
+          get :likes
+        end
       end
     #   get 'customers/show'
     #   get 'customers/edit'

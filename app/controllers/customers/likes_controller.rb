@@ -6,6 +6,9 @@ class Customers::LikesController < ApplicationController
     redirect_back(fallback_location: root_path) #前の画面に戻る
   end
 
+  def index
+    
+  end
 
   def destroy
     @post = Post.find(params[:post_id])
