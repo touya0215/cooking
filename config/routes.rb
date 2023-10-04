@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
   root to: "customers/homes#top"
   get "/", to: 'customers/homes#top', as: :customers_homes_top
-  get "/admin/homes/top", to: 'admins/homes#top', as: :admins_homes_top
   get "homes/about", to: 'customers/homes#about', as: :customers_homes_about
   get 'search', to: 'customers/homes#search', as: :customers_homes_search
   devise_for :customer, controllers: {
@@ -16,9 +15,9 @@ Rails.application.routes.draw do
    # registrations: 'admin/registrations'
   }
 
-  namespace :admin do
+  namespace :admins do
     # namespace :admins do
-      # get 'homes/top'
+      get 'homes/top'
     # end
       resources :posts
     #   get 'posts/new'
