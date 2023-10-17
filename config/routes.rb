@@ -19,7 +19,9 @@ Rails.application.routes.draw do
     # namespace :admins do
       get 'homes/top'
     # end
-      resources :posts
+      resources :posts do
+        resource :comments, only: [:create, :destroy]
+      end
     #   get 'posts/new'
     #   get 'posts/index'
     #   get 'posts/show'
@@ -60,7 +62,7 @@ Rails.application.routes.draw do
     # end
     # namespace :customer do
       resources :posts do
-        resource :comments, only: [:create, :destroy]
+        resources :comments, only: [:create, :destroy]
         resource :likes, only: [:create, :destroy] #いいね機能
       end
     #   get 'posts/new'

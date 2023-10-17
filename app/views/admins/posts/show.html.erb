@@ -1,2 +1,63 @@
-<h1>Admin::Posts#show</h1>
-<p>Find me in app/views/admin/posts/show.html.erb</p>
+<div class="container">
+  <h3 style="width: 11%;  text-align: center; margin-top: 15px; background: #EEEEEE">投稿詳細</h3>
+  <div class="row">
+    <div class=" col-md-3">
+      <%= image_tag @post.image, :size =>'150x150' %>
+    </div>
+    <div class="col-md-8">
+      <table>
+        <tr>
+          <td style="padding-right: 50px;">
+            投稿名
+          </td>
+          <td>
+            <%= @post.name %>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-right: 50px;">
+            作り方
+          </td>
+          <td>
+            <%= @post.sentence %>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding-right: 50px;">
+            ジャンル
+          </td>
+          <td>
+            <%= @post.genre_i18n %>
+          </td>
+        </tr>
+      </table>
+      <div class="row">
+        <div class="text-center">
+          <%= link_to "編集する", edit_post_path, class:"btn btn-sm btn-success" %>
+        </div>
+        <label>  　　　  　　　</label>
+        <div class="text-center">
+          <%= link_to "削除する", post_path, method: :delete, class:"btn btn-sm btn-danger" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <p>コメント件数：<%= @post.comments.count %></p>
+      <% @post.comments.each do |c| %>
+        <table>
+          <tr>
+            <td class="col-md-auto">
+              <%= c.customer.first_name %>
+            </td>
+            <td class="col-md-auto">
+              <%= c.sentence %>
+            </td>
+            <td class="col-md-auto">
+              <%= link_to "削除", admins_post_comments_path(params[:id]), method: :delete, class:"btn btn-sm btn-danger" %>
+            </td>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>
