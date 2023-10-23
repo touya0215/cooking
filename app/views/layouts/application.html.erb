@@ -36,6 +36,9 @@
                 <%= link_to "いいね一覧",likes_customer_path(current_customer), class: 'nav-link text-dark' %>
               </li>
               <li>
+                <%= link_to "ランキング",ranks_customer_path(current_customer), class: 'nav-link text-dark' %>
+              </li>
+              <li>
                 <%= link_to "マイページ",customer_path(current_customer.id), class: 'nav-link text-dark' %>
               </li>
               <li>

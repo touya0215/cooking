@@ -18,7 +18,10 @@ class Customers::CustomersController < ApplicationController
     @likes = Like.where(customer_id: @customer.id).pluck(:post_id)
     @like_posts = Post.find(@likes)
   end
-
+  
+  def ranks
+    @post_like_ranks = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(10).pluck(:post_id))
+  end
 
   def edit
     @customer = Customer.new

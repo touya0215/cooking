@@ -46,8 +46,12 @@ Rails.application.routes.draw do
           patch 'out'
         end
 
-        member do
+        member do #いいね一覧
           get :likes
+        end
+        
+         member do #ランキング
+          get :ranks
         end
       end
     #   get 'customers/show'
