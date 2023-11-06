@@ -1,7 +1,8 @@
 <div class="container">
   <div style="margin-top: 40px">
     <%= form_with url: customers_homes_search_path, local: true, method: :get do |f| %>
-      <%= f.text_field :word, placeholder: "検索したい料理名を記入してください。", size: "40" %>
+      <%= f.text_field :word, placeholder: "料理名,材料名を記入してください。", size: "35" %>
+      <%= f.text_field :count_word, placeholder: "材料の個数と単位を入力してくさい。", size: "35" %>
       <%= f.select :genre, Post.genres.keys.map { |g| [I18n.t("enums.post.genre.#{g}"), g] }, { include_blank: "指定なし" } %>
       <%= f.submit "検索" %>
     <% end %>
