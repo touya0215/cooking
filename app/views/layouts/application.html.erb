@@ -14,9 +14,16 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-warning ">
         <div class="container">
+          <% if customer_signed_in? %>
           <a class="navbar-brand p-3" href="/">
             <span>LOGO</span>
           </a>
+          <% end %>
+          <% if admin_signed_in? %>
+          <a class="navbar-brand p-3" href="/admins/homes/top">
+            <span>LOGO</span>
+          </a>
+          <% end %>
           <% if customer_signed_in? %>
             <a style="margin-left: 100px;" class="navbar-brand p-3">
               <span>ようこそ、<%= current_customer.last_name %>さん！</span>

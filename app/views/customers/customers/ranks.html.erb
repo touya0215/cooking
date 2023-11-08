@@ -1,24 +1,24 @@
 <% last_like = 0 %>
   <% j = 1 %>
   <% @post_like_ranks.each.with_index(1) do |rank, i| %>
-                                                                              <!--12行目からの基本形-->
-                                                                              <!--最初の値をlast_likeに保存-->
-                                                                              <!--<% if i == 1 %>-->
-                                                                              <!--  <% last_like = rank.likes.count %>-->
-                                                                              <!--  <p><%= rank.name %></p>-->
-                                                                              <!--<% end %>-->
-    
+
     <!--last_likeといいね数比べて同じなら同じ順位、違うなら次の順位表示-->
     <% if rank.likes.count != last_like %>
       <% j = i %>
       第<%= j %>位
       <p><%= rank.likes.count %>いいね</p>
+      <%= link_to post_path(rank.id), class: 'text_light' do %>
+        <%= image_tag rank.image, :size => '200x150', class:"margin:10px;" %>
+      <% end %>
       <p><%= rank.name %></p>
       <% last_like = rank.likes.count %>
     <% else %>
       <% last_like = rank.likes.count %>
       第<%= j %>位
       <p><%= rank.likes.count %>いいね</p>
+      <%= link_to post_path(rank.id), class: 'text_light' do %>
+        <%= image_tag rank.image, :size => '200x150', class:"margin:10px;" %>
+      <% end %>
       <p><%= rank.name %></p>
     <% end %>
   <% end %>
