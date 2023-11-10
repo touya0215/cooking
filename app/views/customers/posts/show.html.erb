@@ -19,7 +19,8 @@
             作り方
           </td>
           <td>
-            <%= @post.sentence %>
+            <%#= @post.sentence %>
+            <%=safe_join(@post.sentence.split("\n"),tag(:br))%>
           </td>
         </tr>
         <tr>

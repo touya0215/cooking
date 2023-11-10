@@ -4,26 +4,20 @@
       <% last_like = 0 %>
       <% j = 1 %>
       <% @post_like_ranks.each.with_index(1) do |rank, i| %>
-
-        <!--last_likeといいね数比べて同じなら同じ順位、違うなら次の順位表示-->
         <% if rank.likes.count != last_like %>
           <% j = i %>
           <tr>
             <th><p>第<%= j %>位</p></th>
             <th><p><%= rank.likes.count %>いいね</p></th>
-            <th><p><%= rank.name %></p></th>
-            <%= link_to post_path(rank.id), class: 'text_light' do %>
-              <th><%= image_tag rank.image, :size => '200x150', style:"margin:10px;" %></th>
-            <% end %>
+            <th><%= link_to rank.name, post_path(rank.id) %></th>
+            <th><%= image_tag rank.image, :size => '200x150', style:"margin:10px;" %></th>
           </tr>
         <% else %>
           <% last_like = rank.likes.count %>
           <th><p>第<%= j %>位</p></th>
           <th><p><%= rank.likes.count %>いいね</p></th>
-          <th><p><%= rank.name %></p></th>
-          <%= link_to post_path(rank.id), class: 'text_light' do %>
-            <th><%= image_tag rank.image, :size => '200x150', class:"margin:10px;" %></th>
-          <% end %>
+          <th><%= link_to rank.name, post_path(rank.id) %></th>
+          <th><%= image_tag rank.image, :size => '200x150', style:"margin:10px;" %></th>
         <% end %>
       <% end %>
     </table>
