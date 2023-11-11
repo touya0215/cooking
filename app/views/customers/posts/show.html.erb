@@ -5,29 +5,30 @@
       <%= image_tag @post.image, :size =>'150x150' %>
     </div>
     <div class="col-md-8">
-      <table>
+      <table border="1" style="border-collapse: collapse">
         <tr>
-          <td style="padding-right: 50px;">
+          <td style="padding: 20px;">
             投稿名
           </td>
-          <td>
+          <td style="padding-left: 10px">
             <%= @post.name %>
           </td>
         </tr>
         <tr>
-          <td style="padding-right: 50px;">
+          <td style="padding: 20px;">
             作り方
           </td>
-          <td>
+          <td style="padding-left: 10px">
             <%#= @post.sentence %>
+            <%#=下記は改行を表示する%>
             <%=safe_join(@post.sentence.split("\n"),tag(:br))%>
           </td>
         </tr>
         <tr>
-          <td style="padding-right: 50px;">
+          <td style="padding: 20px;">
             ジャンル
           </td>
-          <td>
+          <td style="padding-left: 10px">
             <%= @post.genre_i18n %>
           </td>
         </tr>
