@@ -52,6 +52,7 @@
         <%= f.submit "コメントする" %>
       <% end %>
     </div>
+    <% end %>
     <div class="col-md-12">
       <p>コメント件数：<%= @post.comments.count %></p>
       <% @post.comments.each do |c| %>
@@ -73,6 +74,5 @@
         </table>
       <% end %>
     </div>
-    <% end %>
   </div>
 </div>

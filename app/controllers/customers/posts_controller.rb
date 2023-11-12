@@ -17,7 +17,9 @@ class Customers::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comments = @post.comments  #投稿詳細に関連付けてあるコメントを全取得
-    @comment = current_customer.comments.new  #投稿詳細画面でコメントの投稿を行うので、formのパラメータ用にCommentオブジェクトを取得
+    if customer_signed_in?
+      @comment = current_customer.comments.new  #投稿詳細画面でコメントの投稿を行うので、formのパラメータ用にCommentオブジェクトを取得
+    end
   end
 
   def edit
