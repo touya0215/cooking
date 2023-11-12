@@ -19,7 +19,9 @@
             作り方
           </td>
           <td>
-            <%= @post.sentence %>
+            <%#= @post.sentence %>
+            <%#=下記は改行を表示する%>
+            <%=safe_join(@post.sentence.split("\n"),tag(:br))%>
           </td>
         </tr>
         <tr>
@@ -37,7 +39,7 @@
         </div>
         <label>  　　　  　　　</label>
         <div class="text-center">
-          <%= link_to "削除する", post_path, method: :delete, class:"btn btn-sm btn-danger" %>
+          <%= link_to "削除する", admins_post_path, method: :delete, class:"btn btn-sm btn-danger" %>
         </div>
       </div>
     </div>
@@ -50,10 +52,11 @@
               <%= c.customer.first_name %>
             </td>
             <td class="col-md-auto">
-              <%= c.sentence %>
+              <%#= c.sentence %>
+              <%=safe_join(c.sentence.split("\n"),tag(:br))%>
             </td>
             <td class="col-md-auto">
-              <%= link_to "削除", admins_post_comments_path(params[:id]), method: :delete, class:"btn btn-sm btn-danger" %>
+              <%= link_to "削除", admins_post_comment_path(params[:id], c.id), method: :delete, class:"btn btn-sm btn-danger" %>
             </td>
           </tr>
         </table>

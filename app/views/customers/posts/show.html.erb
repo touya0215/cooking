@@ -10,7 +10,7 @@
           <td style="padding: 20px;">
             投稿名
           </td>
-          <td style="padding-left: 10px">
+          <td style="padding: 10px">
             <%= @post.name %>
           </td>
         </tr>
@@ -18,7 +18,7 @@
           <td style="padding: 20px;">
             作り方
           </td>
-          <td style="padding-left: 10px">
+          <td style="padding: 10px">
             <%#= @post.sentence %>
             <%#=下記は改行を表示する%>
             <%=safe_join(@post.sentence.split("\n"),tag(:br))%>
@@ -28,13 +28,13 @@
           <td style="padding: 20px;">
             ジャンル
           </td>
-          <td style="padding-left: 10px">
+          <td style="padding: 10px">
             <%= @post.genre_i18n %>
           </td>
         </tr>
       </table>
       <% if @post.customer == current_customer %>
-      <div class="row">
+      <div class="row" style="padding: 10px">
         <div class="text-center">
           <%= link_to "編集する", edit_post_path, class:"btn btn-sm btn-success" %>
         </div>
@@ -61,7 +61,8 @@
               <%= c.customer.first_name %>
             </td>
             <td class="col-md-auto">
-              <%= c.sentence %>
+              <%#= c.sentence %>
+              <%=safe_join(c.sentence.split("\n"),tag(:br))%>
             </td>
             <td class="col-md-auto">
               <% if c.customer == current_customer %>

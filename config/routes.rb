@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       get 'homes/top'
     # end
       resources :posts do
-        resource :comments, only: [:create, :destroy]
+        resources :comments, only: [:create, :destroy]
       end
     #   get 'posts/new'
     #   get 'posts/index'
@@ -49,7 +49,7 @@ Rails.application.routes.draw do
         member do #いいね一覧
           get :likes
         end
-        
+
          member do #ランキング
           get :ranks
         end
