@@ -15,7 +15,7 @@ class Customers::HomesController < ApplicationController
     # @posts = Post.where("name LIKE ? or sentence LIKE ? or genre = ?", "%#{search_word}%", "%#{search_count_word}%", genre_num)
     @posts = Post
     if params[:word]!=""
-      @posts = @posts.where("name LIKE ?", "%#{search_word}%")
+      @posts += @posts.where("name LIKE ?", "%#{search_word}%")
     end
     if params[:count_word]!=""
       @posts = @posts + @posts.where("sentence LIKE ?", "%#{search_count_word}%" )
