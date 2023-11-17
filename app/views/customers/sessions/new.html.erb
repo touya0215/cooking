@@ -2,6 +2,7 @@
   <h3 style="width: 15%; text-align: center; margin: 30px 30px; background: #EEEEEE">ログイン</h3>
   <h3 style="width: 40%; text-align: center; margin: 30px 60px; background: #EEEEEE">会員の方はこちらからログイン</h3>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= render "customers/shared/error_messages", resource: resource %>
   <div class="row text-center">
     <table class="mx-auto col-11 col-sm-10 col-lg-7">
       <tr>

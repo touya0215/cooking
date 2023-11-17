@@ -7,3 +7,6 @@
           side_dish: "副菜"
           rice_bowls: "丼類"
           dessert: "デザート"
+    errors:
+      messages:
+        not_saved: "エラーが発生したため、保存されませんでした。"
