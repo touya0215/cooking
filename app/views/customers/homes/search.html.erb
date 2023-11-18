@@ -1,5 +1,6 @@
 <div class="container">
   <div style="margin-top: 40px">
+    <font color=”#ff0000″><strong>材料の個数は大文字入力</strong></font>
     <%= form_with url: customers_homes_search_path, local: true, method: :get do |f| %>
       <%= f.text_field :word, placeholder: "料理名・材料名を記入してください。", size: "35" %>
       <%= f.text_field :count_word, placeholder: "材料の個数と単位を入力してくさい。", size: "35" %>
