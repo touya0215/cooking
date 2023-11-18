@@ -6,7 +6,7 @@
           <%= link_to image_tag( post.image.variant(resize: '100x100') ), post_path(post.id) %>
         </tb>
         <tb style="margin: 50px;">
-          <%= post.customer.last_name %>
+          <%= post.genre_i18n %>
         </tb>
         <tb style="margin: 50px;">
           <i class="fa fa-heart unlike-btn"></i>
