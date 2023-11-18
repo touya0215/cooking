@@ -3,6 +3,7 @@
   <h3 style="width: 40%; text-align: center; margin: 30px 60px; background: #EEEEEE">会員の方はこちらからログイン</h3>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= render "customers/shared/error_messages", resource: resource %>
+  <p class="alert"><%= alert %></p>
   <div class="row text-center">
     <table class="mx-auto col-11 col-sm-10 col-lg-7">
       <tr>
