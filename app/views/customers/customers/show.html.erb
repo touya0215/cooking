@@ -20,28 +20,30 @@
           <%= link_to "いいねした投稿", likes_customer_path(@customers), class:"margin: 20px; btn btn-info"  %>
         </div>
       </div>
-      <table border="1">
-        <tr>
-          <td style="background: #EEEEEE">氏名</td>
-          <td>
-            <%= @customers.last_name %> <%= @customers.first_name %>
-          </td>
-        </tr>
-        <tr>
-          <td style="background: #EEEEEE">カナ</td>
-          <td>
-            <%= @customers.last_name_kama %> <%= @customers.first_name_kana %>
-          </td>
-        </tr>
-        <tr>
-          <td style="background: #EEEEEE">電話番号</td>
-          <td><%= @customers.telephone_number %></td>
-        </tr>
-        <tr>
-          <td style="background: #EEEEEE">メールアドレス　　　</td>
-          <td><%= @customers.email %>　　　</td>
-        </tr>
-      </table>
+      <div style="padding-left: 35px;">
+        <table border="1">
+          <tr>
+            <td style="background: #EEEEEE">氏名</td>
+            <td>
+              <%= @customers.last_name %> <%= @customers.first_name %>
+            </td>
+          </tr>
+          <tr>
+            <td style="background: #EEEEEE">カナ</td>
+            <td>
+              <%= @customers.last_name_kama %> <%= @customers.first_name_kana %>
+            </td>
+          </tr>
+          <tr>
+            <td style="background: #EEEEEE">電話番号</td>
+            <td><%= @customers.telephone_number %></td>
+          </tr>
+          <tr>
+            <td style="background: #EEEEEE">メールアドレス　　　</td>
+            <td><%= @customers.email %>　　　</td>
+          </tr>
+        </table>
+      </div>
     </div>
     <div class="col-md-4">
       <% @posts.each do |f| %>
