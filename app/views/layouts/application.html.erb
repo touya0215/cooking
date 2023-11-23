@@ -74,5 +74,10 @@
     <main class="mb-auto">
     <%= yield %>
     </main>
+    <footer class="bg-warning pt-5 pb-4">
+      <div class="container">
+        <%= link_to "会社概要", customers_homes_about_path, class: 'nav-link text-dark' %>
+      </div>
+    </footer>
   </body>
 </html>

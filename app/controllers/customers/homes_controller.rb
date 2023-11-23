@@ -4,6 +4,7 @@ class Customers::HomesController < ApplicationController
   end
 
   def about
+    
   end
 
   def search
