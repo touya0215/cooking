@@ -23,7 +23,9 @@
 - 他の人がどんな料理を作っているのか検索する時
 ## 設計書
 <!--テーマを設定・提出する時点では不要です-->
-後ほど作成予定
+- https://www.figma.com/file/SkskTEbzEeJFdu3zdJ4ERb/cooking?type=whiteboard&node-id=0-1&t=wOVxdIxfBvkIsvLv-0
+- https://app.diagrams.net/?libs=general;er#G1loYpP3mdNiHbqc8EtBukGHaz9yhgVqZM#%7B%22pageId%22%3A%22R2lEEEUBdFMjLlhIrx00%22%7D
+- https://docs.google.com/spreadsheets/d/1Lbz63Aj2-FpgvnO2pzRwNv04rjodUKX9Gfvqdl0DBaQ/edit#gid=84123752
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
